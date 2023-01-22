@@ -1,0 +1,31 @@
+# EventOneOf
+
+## Enum
+
+
+* `USER_DATA_ING_SESS_STARTING` (value: `"USER_DATA_ING_SESS_STARTING"`)
+
+* `USER_DATA_ING_SESS_STARTED` (value: `"USER_DATA_ING_SESS_STARTED"`)
+
+* `USER_DATA_ING_SESS_TERMINATED` (value: `"USER_DATA_ING_SESS_TERMINATED"`)
+
+* `DIST_SESS_STARTING` (value: `"DIST_SESS_STARTING"`)
+
+* `DIST_SESS_STARTED` (value: `"DIST_SESS_STARTED"`)
+
+* `DIST_SESS_TERMINATED` (value: `"DIST_SESS_TERMINATED"`)
+
+* `DIST_SESS_SERV_MNGT_FAILURE` (value: `"DIST_SESS_SERV_MNGT_FAILURE"`)
+
+* `DIST_SESS_POL_CRTL_FAILURE` (value: `"DIST_SESS_POL_CRTL_FAILURE"`)
+
+* `DATA_INGEST_FAILURE` (value: `"DATA_INGEST_FAILURE"`)
+
+* `DELIVERY_STARTED` (value: `"DELIVERY_STARTED"`)
+
+* `SESSION_TERMINATED` (value: `"SESSION_TERMINATED"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

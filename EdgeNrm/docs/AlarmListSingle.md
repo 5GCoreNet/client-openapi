@@ -1,0 +1,165 @@
+# AlarmListSingle
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **NullableString** |  | 
+**ObjectClass** | Pointer to **string** |  | [optional] 
+**ObjectInstance** | Pointer to **string** |  | [optional] 
+**VsDataContainer** | Pointer to [**[]VsDataContainerSingle**](VsDataContainerSingle.md) |  | [optional] 
+**Attributes** | Pointer to [**AlarmListSingleAllOfAttributes**](AlarmListSingleAllOfAttributes.md) |  | [optional] 
+
+## Methods
+
+### NewAlarmListSingle
+
+`func NewAlarmListSingle(id NullableString, ) *AlarmListSingle`
+
+NewAlarmListSingle instantiates a new AlarmListSingle object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewAlarmListSingleWithDefaults
+
+`func NewAlarmListSingleWithDefaults() *AlarmListSingle`
+
+NewAlarmListSingleWithDefaults instantiates a new AlarmListSingle object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *AlarmListSingle) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *AlarmListSingle) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *AlarmListSingle) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
+### SetIdNil
+
+`func (o *AlarmListSingle) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AlarmListSingle) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
+### GetObjectClass
+
+`func (o *AlarmListSingle) GetObjectClass() string`
+
+GetObjectClass returns the ObjectClass field if non-nil, zero value otherwise.
+
+### GetObjectClassOk
+
+`func (o *AlarmListSingle) GetObjectClassOk() (*string, bool)`
+
+GetObjectClassOk returns a tuple with the ObjectClass field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectClass
+
+`func (o *AlarmListSingle) SetObjectClass(v string)`
+
+SetObjectClass sets ObjectClass field to given value.
+
+### HasObjectClass
+
+`func (o *AlarmListSingle) HasObjectClass() bool`
+
+HasObjectClass returns a boolean if a field has been set.
+
+### GetObjectInstance
+
+`func (o *AlarmListSingle) GetObjectInstance() string`
+
+GetObjectInstance returns the ObjectInstance field if non-nil, zero value otherwise.
+
+### GetObjectInstanceOk
+
+`func (o *AlarmListSingle) GetObjectInstanceOk() (*string, bool)`
+
+GetObjectInstanceOk returns a tuple with the ObjectInstance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectInstance
+
+`func (o *AlarmListSingle) SetObjectInstance(v string)`
+
+SetObjectInstance sets ObjectInstance field to given value.
+
+### HasObjectInstance
+
+`func (o *AlarmListSingle) HasObjectInstance() bool`
+
+HasObjectInstance returns a boolean if a field has been set.
+
+### GetVsDataContainer
+
+`func (o *AlarmListSingle) GetVsDataContainer() []VsDataContainerSingle`
+
+GetVsDataContainer returns the VsDataContainer field if non-nil, zero value otherwise.
+
+### GetVsDataContainerOk
+
+`func (o *AlarmListSingle) GetVsDataContainerOk() (*[]VsDataContainerSingle, bool)`
+
+GetVsDataContainerOk returns a tuple with the VsDataContainer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVsDataContainer
+
+`func (o *AlarmListSingle) SetVsDataContainer(v []VsDataContainerSingle)`
+
+SetVsDataContainer sets VsDataContainer field to given value.
+
+### HasVsDataContainer
+
+`func (o *AlarmListSingle) HasVsDataContainer() bool`
+
+HasVsDataContainer returns a boolean if a field has been set.
+
+### GetAttributes
+
+`func (o *AlarmListSingle) GetAttributes() AlarmListSingleAllOfAttributes`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *AlarmListSingle) GetAttributesOk() (*AlarmListSingleAllOfAttributes, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *AlarmListSingle) SetAttributes(v AlarmListSingleAllOfAttributes)`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *AlarmListSingle) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

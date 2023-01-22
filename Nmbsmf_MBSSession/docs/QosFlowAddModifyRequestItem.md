@@ -1,0 +1,77 @@
+# QosFlowAddModifyRequestItem
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Qfi** | **int32** | Unsigned integer identifying a QoS flow, within the range 0 to 63. | 
+**QosFlowProfile** | Pointer to [**QosFlowProfile**](QosFlowProfile.md) |  | [optional] 
+
+## Methods
+
+### NewQosFlowAddModifyRequestItem
+
+`func NewQosFlowAddModifyRequestItem(qfi int32, ) *QosFlowAddModifyRequestItem`
+
+NewQosFlowAddModifyRequestItem instantiates a new QosFlowAddModifyRequestItem object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewQosFlowAddModifyRequestItemWithDefaults
+
+`func NewQosFlowAddModifyRequestItemWithDefaults() *QosFlowAddModifyRequestItem`
+
+NewQosFlowAddModifyRequestItemWithDefaults instantiates a new QosFlowAddModifyRequestItem object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetQfi
+
+`func (o *QosFlowAddModifyRequestItem) GetQfi() int32`
+
+GetQfi returns the Qfi field if non-nil, zero value otherwise.
+
+### GetQfiOk
+
+`func (o *QosFlowAddModifyRequestItem) GetQfiOk() (*int32, bool)`
+
+GetQfiOk returns a tuple with the Qfi field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQfi
+
+`func (o *QosFlowAddModifyRequestItem) SetQfi(v int32)`
+
+SetQfi sets Qfi field to given value.
+
+
+### GetQosFlowProfile
+
+`func (o *QosFlowAddModifyRequestItem) GetQosFlowProfile() QosFlowProfile`
+
+GetQosFlowProfile returns the QosFlowProfile field if non-nil, zero value otherwise.
+
+### GetQosFlowProfileOk
+
+`func (o *QosFlowAddModifyRequestItem) GetQosFlowProfileOk() (*QosFlowProfile, bool)`
+
+GetQosFlowProfileOk returns a tuple with the QosFlowProfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQosFlowProfile
+
+`func (o *QosFlowAddModifyRequestItem) SetQosFlowProfile(v QosFlowProfile)`
+
+SetQosFlowProfile sets QosFlowProfile field to given value.
+
+### HasQosFlowProfile
+
+`func (o *QosFlowAddModifyRequestItem) HasQosFlowProfile() bool`
+
+HasQosFlowProfile returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

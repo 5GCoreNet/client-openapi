@@ -1,0 +1,25 @@
+# ImsRegistrationTypeAnyOf
+
+## Enum
+
+
+* `INITIAL_REGISTRATION` (value: `"INITIAL_REGISTRATION"`)
+
+* `RE_REGISTRATION` (value: `"RE_REGISTRATION"`)
+
+* `TIMEOUT_DEREGISTRATION` (value: `"TIMEOUT_DEREGISTRATION"`)
+
+* `USER_DEREGISTRATION` (value: `"USER_DEREGISTRATION"`)
+
+* `ADMINISTRATIVE_DEREGISTRATION` (value: `"ADMINISTRATIVE_DEREGISTRATION"`)
+
+* `AUTHENTICATION_FAILURE` (value: `"AUTHENTICATION_FAILURE"`)
+
+* `AUTHENTICATION_TIMEOUT` (value: `"AUTHENTICATION_TIMEOUT"`)
+
+* `UNREGISTERED_USER` (value: `"UNREGISTERED_USER"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

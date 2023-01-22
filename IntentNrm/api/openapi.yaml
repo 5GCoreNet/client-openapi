@@ -1,0 +1,912 @@
+openapi: 3.0.1
+info:
+  description: "OAS 3.0.1 definition of the Intent NRM © 2022, 3GPP Organizational\
+    \ Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved."
+  title: Intent NRM
+  version: 17.0.0
+externalDocs:
+  description: 3GPP TS 28.312; Intent driven management services for mobile networks
+  url: http://www.3gpp.org/ftp/Specs/archive/28_series/28.312/
+servers:
+- url: /
+paths: {}
+components:
+  schemas:
+    Intent-Single:
+      allOf:
+      - $ref: '#/components/schemas/Top'
+      - $ref: '#/components/schemas/Intent_Single_allOf'
+    IntentExpectation:
+      description: "This data type is the \"IntentExpectation\" data type without\
+        \ specialisations      type: object"
+      properties:
+        expectationId:
+          type: string
+        expectationVerb:
+          $ref: '#/components/schemas/ExpectationVerb'
+        expectationObjects:
+          items:
+            $ref: '#/components/schemas/ExpectationObject'
+          type: array
+        expectationTargets:
+          items:
+            $ref: '#/components/schemas/ExpectationTarget'
+          type: array
+        expectationContexts:
+          items:
+            $ref: '#/components/schemas/ExpectationContext'
+          type: array
+        expectationfulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+    RadioNetworkExpectation:
+      description: 'This data type is the "IntentExpectation" data type with specialisations
+        to represent MnS consumer''s expectations for radio network  delivering and
+        performance assurance    '
+      properties:
+        expectationId:
+          type: string
+        expectationVerb:
+          $ref: '#/components/schemas/ExpectationVerb'
+        expectationObjects:
+          items:
+            $ref: '#/components/schemas/RadioNetworkExpectationObject'
+          type: array
+        expectationTargets:
+          items:
+            $ref: '#/components/schemas/RadioNetworkExpectation_expectationTargets_inner'
+          type: array
+        expectationContexts:
+          items:
+            $ref: '#/components/schemas/ExpectationContext'
+          type: array
+        expectationfulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+      type: object
+    ServiceSupportExpectation:
+      description: 'This data type is the "IntentExpectation" data type with specialisations
+        to represent MnS consumer''s expectations for service deployment    '
+      properties:
+        expectationId:
+          type: string
+        expectationVerb:
+          $ref: '#/components/schemas/ExpectationVerb'
+        expectationObjects:
+          items:
+            $ref: '#/components/schemas/ServiceSupportExpectationObject'
+          type: array
+        expectationTargets:
+          items:
+            $ref: '#/components/schemas/ServiceSupportExpectation_expectationTargets_inner'
+          type: array
+        expectationContexts:
+          items:
+            $ref: '#/components/schemas/ServiceSupportExpectation_expectationContexts_inner'
+          type: array
+        expectationfulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+      type: object
+    ExpectationObject:
+      description: This data type is the "ExpectationObject" data type without specialisations
+      properties:
+        objectType:
+          enum:
+          - RAN_SubNetwrok
+          - Service_Support
+          - TBD
+          type: string
+        objectInstance:
+          type: string
+        objectContexts:
+          items:
+            $ref: '#/components/schemas/ObjectContext'
+          type: array
+      type: object
+    RadioNetworkExpectationObject:
+      description: This data type is the "ExpectationObject" data type with specialisations
+        for RadioNetworkExpectation
+      properties:
+        objectType:
+          enum:
+          - RAN_SubNetwrok
+          type: string
+        objectInstance:
+          type: string
+        objectContexts:
+          items:
+            $ref: '#/components/schemas/RadioNetworkExpectationObject_objectContexts_inner'
+          type: array
+      type: object
+    ServiceSupportExpectationObject:
+      description: This data type is the "ExpectationObject" data type with specialisations
+        for ServiceSupportExpectation
+      properties:
+        objectType:
+          enum:
+          - Service_Support
+          type: string
+        objectInstance:
+          type: string
+        objectContexts:
+          items:
+            $ref: '#/components/schemas/ServiceSupportExpectationObject_objectContexts_inner'
+          type: array
+      type: object
+    Condition:
+      enum:
+      - Is_equal_to
+      - Is_less_than
+      - Is_greater_than
+      - Is_within_the_range
+      type: string
+    FulfilStatus:
+      enum:
+      - FULFILLED
+      - NOT_FULFILLED
+      type: string
+    NotFulfilledState:
+      enum:
+      - ACKNOWLEDGED
+      - COMPLIANT
+      - DEGRADED
+      - SUSPENDED
+      - TERMINATED
+      - FULFILMENTFAILED
+      type: string
+    FulfilmentInfo:
+      properties:
+        fulfilStatus:
+          $ref: '#/components/schemas/FulfilStatus'
+        notFullfilledState:
+          $ref: '#/components/schemas/NotFulfilledState'
+        notFulfilledReasons:
+          description: -> An attribute which is used when FulfilmentInfo is implemented
+            for IntentFulfilmentInfo
+          type: string
+      type: object
+    ExpectationVerb:
+      enum:
+      - DELIVER
+      - ENSURE
+      type: string
+    IntentContext:
+      description: This data type is the "IntentContext" data type without specialisations
+      properties:
+        contextAttribute:
+          type: string
+        contextCondition:
+          $ref: '#/components/schemas/Condition'
+        contextValueRange:
+          items:
+            type: number
+          type: array
+      type: object
+    ExpectationTarget:
+      description: This data type is the "ExpectationTarget" data type without specialisations
+      properties:
+        targetName:
+          type: string
+        targetCondition:
+          $ref: '#/components/schemas/Condition'
+        targetValueRange:
+          type: number
+        targetContexts:
+          items:
+            $ref: '#/components/schemas/TargetContext'
+          type: array
+      type: object
+    TargetContext:
+      description: This data type is the "TargetContext" data type without specialisations
+      properties:
+        contextAttribute:
+          type: string
+        contextCondition:
+          $ref: '#/components/schemas/Condition'
+        contextValueRange:
+          type: number
+      type: object
+    WeakRSRPRatioTarget:
+      description: This data type is the "ExpectationTarget" data type with specialisations
+        for WeakRSRPRatioTarget
+      properties:
+        targetName:
+          enum:
+          - WeakRSRPRatio
+          type: string
+        targetCondition:
+          enum:
+          - Is_less_than
+          type: string
+        targetValueRange:
+          maximum: 100
+          minimum: 0
+          type: integer
+        targetContexts:
+          $ref: '#/components/schemas/WeakRSRPContext'
+        targetFulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+      type: object
+    WeakRSRPContext:
+      description: This data type is the "TargetContext" data type with specialisations
+        for WeakRSRPContext
+      properties:
+        contextAttribute:
+          enum:
+          - WeakRSRPThreshold
+          type: string
+        contextCondition:
+          enum:
+          - Is_less_than
+          type: string
+        contextValueRange:
+          type: number
+      type: object
+    LowSINRRatioTarget:
+      description: This data type is the "ExpectationTarget" data type with specialisations
+        for LowSINRatioTarget
+      properties:
+        targetName:
+          enum:
+          - LowSINRRatio
+          type: string
+        targetCondition:
+          enum:
+          - Is_less_than
+          type: string
+        targetValueRange:
+          maximum: 100
+          minimum: 0
+          type: integer
+        targetContexts:
+          $ref: '#/components/schemas/LowSINRContext'
+        targetFulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+      type: object
+    LowSINRContext:
+      description: This data type is the "TargetContext" data type with specialisations
+        for LowSINRContext
+      properties:
+        contextAttribute:
+          enum:
+          - LowSINRThreshold
+          type: string
+        contextCondition:
+          enum:
+          - Is_less_than
+          type: string
+        contextValueRange:
+          type: integer
+      type: object
+    AveULRANUEThptTarget:
+      description: This data type is the "ExpectationTarget" data type with specialisations
+        for AveULRANUEThptTarget
+      properties:
+        targetName:
+          enum:
+          - AveULRANUEThpt
+          type: string
+        targetCondition:
+          enum:
+          - Is_greater_than
+          type: string
+        targetValueRange:
+          type: integer
+        targetFulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+      type: object
+    AveDLRANUEThptTarget:
+      description: 'This data type is the "ExpectationTarget" data type with specialisations
+        for AveDLRANUEThptTarget    '
+      properties:
+        targetName:
+          enum:
+          - AveDLRANUEThpt
+          type: string
+        targetCondition:
+          enum:
+          - Is_greater_than
+          type: string
+        targetValueRange:
+          type: integer
+        targetFulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+      type: object
+    LowULRANUEThptRatioTarget:
+      description: 'This data type is the "ExpectationTarget" data type with specialisations
+        for LowULRANUEThptRatioTarget       '
+      properties:
+        targetName:
+          enum:
+          - LowULRANUEThptRatio
+          type: string
+        targetCondition:
+          enum:
+          - Is_less_than
+          type: string
+        targetValueRange:
+          maximum: 100
+          minimum: 0
+          type: integer
+        targetContexts:
+          $ref: '#/components/schemas/LowULRANUEThptContext'
+        targetFulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+      type: object
+    LowULRANUEThptContext:
+      description: 'This data type is the "TargetContext" data type with specialisations
+        for LowULRANUEThptContext    '
+      properties:
+        contextAttribute:
+          enum:
+          - LowULRANUEThptThreshold
+          type: string
+        contextCondition:
+          enum:
+          - Is_less_than
+          type: string
+        contextValueRange:
+          type: number
+      type: object
+    LowDLRANUEThptRatioTarget:
+      description: 'This data type is the "ExpectationTarget" data type with specialisations
+        for LowDLRANUEThptRatioTarget    '
+      properties:
+        targetName:
+          enum:
+          - LowDLRANUEThptRatio
+          type: string
+        targetCondition:
+          enum:
+          - Is_less_than
+          type: string
+        targetValueRange:
+          maximum: 100
+          minimum: 0
+          type: integer
+        targetContexts:
+          $ref: '#/components/schemas/LowDLRANUEThptContext'
+        targetFulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+      type: object
+    LowDLRANUEThptContext:
+      description: 'This data type is the "TargetContext" data type with specialisations
+        for LowDLRANUEThptContext    '
+      properties:
+        contextAttribute:
+          enum:
+          - LowDLRANUEThptThreshold
+          type: string
+        contextCondition:
+          enum:
+          - Is_less_than
+          type: string
+        contextValueRange:
+          type: number
+      type: object
+    DLThptPerUETarget:
+      description: 'This data type is the "ExpectationTarget" data type with specialisations
+        for DLThptPerUETarget   '
+      properties:
+        targetName:
+          enum:
+          - DlThptPerUE
+          type: string
+        targetCondition:
+          enum:
+          - Is_greater_than
+          type: string
+        targetValueRange:
+          $ref: '#/components/schemas/XLThpt'
+      type: object
+    ULThptPerUETarget:
+      description: 'This data type is the "ExpectationTarget" data type with specialisations
+        for ULThptPerUETarget   '
+      properties:
+        targetName:
+          enum:
+          - UlThptPerUE
+          type: string
+        targetCondition:
+          enum:
+          - Is_greater_than
+          type: string
+        targetValueRange:
+          $ref: '#/components/schemas/XLThpt'
+      type: object
+    DLLatencyTarget:
+      description: 'This data type is the "ExpectationTarget" data type with specialisations
+        for DLLatencyTarget    '
+      properties:
+        targetName:
+          enum:
+          - DlLatency
+          type: string
+        targetCondition:
+          enum:
+          - Is_less_than
+          type: string
+        targetValueRange:
+          type: integer
+      type: object
+    ULLatencyTarget:
+      description: 'This data type is the "ExpectationTarget" data type with specialisations
+        for ULLatencyTarget     '
+      properties:
+        targetName:
+          enum:
+          - UlLatency
+          type: string
+        targetCondition:
+          enum:
+          - Is_less_than
+          type: string
+        targetValueRange:
+          type: integer
+      type: object
+    MaxNumberofUEsTarget:
+      description: 'This data type is the "ExpectationTarget" data type with specialisations
+        for MaxNumberofUEsTarget     '
+      properties:
+        targetAttribute:
+          enum:
+          - maxNumberofUEs
+          type: string
+        targetCondition:
+          enum:
+          - Is_less _than
+          type: string
+        targetValueRange:
+          type: integer
+      type: object
+    ActivityFactorTarget:
+      description: 'This data type is the "ExpectationTarget" data type with specialisations
+        for ActivityFactorTarget   '
+      properties:
+        targetAttribute:
+          enum:
+          - activityFactor
+          type: string
+        targetCondition:
+          enum:
+          - Is_equal _than
+          type: string
+        targetValueRange:
+          type: integer
+      type: object
+    UESpeedTarget:
+      description: This data type is the "ExpectationTarget" data type with specialisations
+        for UESpeedTarget
+      properties:
+        targetAttribute:
+          enum:
+          - uESpeed
+          type: string
+        targetCondition:
+          enum:
+          - Is_less _than
+          type: string
+        targetValueRange:
+          type: integer
+      type: object
+    ObjectContext:
+      description: 'This data type is the "ObjectContext" data type without specialisations        '
+      properties:
+        contextAttribute:
+          type: string
+        contextCondition:
+          $ref: '#/components/schemas/Condition'
+        contextValueRange:
+          items:
+            type: number
+          type: array
+      type: object
+    CoverageAreaPolygonContext:
+      description: 'This data type is the "ObjectContext" data type with specialisations
+        for CoverageAreaPolygonContext  '
+      properties:
+        contextAttribute:
+          enum:
+          - CoverageAreaPolygon
+          type: string
+        contextCondition:
+          enum:
+          - Is_within_the_range
+          type: string
+        contextValueRange:
+          items:
+            $ref: '#/components/schemas/CoverageArea'
+          type: array
+      type: object
+    CoverageArea:
+      type: string
+    CoverageTACContext:
+      description: 'This data type is the "ObjectContext" data type with specialisations
+        for CoverageTACContext    '
+      properties:
+        contextAttribute:
+          enum:
+          - CoverageAreaTac
+          type: string
+        contextCondition:
+          enum:
+          - Is_within_the_range
+          type: string
+        contextValueRange:
+          items:
+            $ref: '#/components/schemas/NrTac'
+          type: array
+      type: object
+    PLMNContext:
+      description: 'This data type is the "ObjectContext" data type with specialisations
+        for PLMNContext       '
+      properties:
+        contextAttribute:
+          enum:
+          - PLMN
+          type: string
+        contextCondition:
+          enum:
+          - Is_within_the_range
+          type: string
+        contextValueRange:
+          items:
+            $ref: '#/components/schemas/PlmnId'
+          type: array
+      type: object
+    NRFqBandContext:
+      description: 'This data type is the "ObjectContext" data type with specialisations
+        for NRFqBandContext       '
+      properties:
+        contextAttribute:
+          enum:
+          - NRFqBand
+          type: string
+        contextCondition:
+          enum:
+          - Is_within_the_range
+          type: string
+        contextValueRange:
+          items:
+            type: string
+          type: array
+      type: object
+    RATContext:
+      description: 'This data type is the "ObjectContext" data type with specialisations
+        for RATContext      '
+      properties:
+        contextAttribute:
+          enum:
+          - RAT
+          type: string
+        contextCondition:
+          enum:
+          - Is_within_the_range
+          type: string
+        contextValueRange:
+          items:
+            enum:
+            - UTRAN
+            - EUTRAN
+            - NR
+            type: string
+          type: array
+      type: object
+    EdgeIdenfiticationIdContext:
+      description: This data type is the "ObjectContext" data type with specialisations
+        for EdgeIdenfiticationIdContext
+      properties:
+        contextAttribute:
+          enum:
+          - edgeIdentificationId
+          type: string
+        contextCondition:
+          enum:
+          - Is_equal_than
+          type: string
+        contextValueRange:
+          items:
+            type: string
+          type: array
+      type: object
+    EdgeIdenfiticationLocContext:
+      description: 'This data type is the "ObjectContext" data type with specialisations
+        for EdgeIdenfiticationLocContext   '
+      properties:
+        contextAttribute:
+          enum:
+          - edgeIdentificationTarget
+          type: string
+        contextCondition:
+          enum:
+          - Is_equal_than
+          type: string
+        contextValueRange:
+          items:
+            type: string
+          type: array
+      type: object
+    CoverageAreaTAContext:
+      description: 'This data type is the "ObjectContext" data type with specialisations
+        for CoverageAreaTAContext   '
+      properties:
+        contextAttribute:
+          enum:
+          - coverageAreaTA
+          type: string
+        contextCondition:
+          enum:
+          - Is_within_the_range
+          type: string
+        contextValueRange:
+          items:
+            $ref: '#/components/schemas/CoverageAreaTAList'
+          type: array
+      type: object
+    CoverageAreaTAList:
+      type: integer
+    ExpectationContext:
+      description: 'This data type is the "ExpectationContext" data type without specialisations       '
+      properties:
+        contextAttribute:
+          type: string
+        contextCondition:
+          $ref: '#/components/schemas/Condition'
+        contextValueRange:
+          items:
+            type: number
+          type: array
+      type: object
+    ServiceStartTimeContext:
+      description: 'This data type is the "ExpectationContext" data type with specialisations
+        for ServiceStartTimeContext   '
+      properties:
+        contextAttribute:
+          enum:
+          - ServiceStartTime
+          type: string
+        contextCondition:
+          enum:
+          - Is_equal_than
+          type: string
+        contextValueRange:
+          type: string
+      type: object
+    ServiceEndTimeContext:
+      description: This data type is the "ExpectationContext" data type with specialisations
+        for ServiceEndTimeContext
+      properties:
+        contextAttribute:
+          enum:
+          - ServiceEndTime
+          type: string
+        contextCondition:
+          enum:
+          - Is_equal_than
+          type: string
+        contextValueRange:
+          type: string
+      type: object
+    UEMobilityLevelContext:
+      description: 'This data type is the "ExpectationContext" data type with specialisations
+        for UEMobilityLevelContext     '
+      properties:
+        contextAttribute:
+          enum:
+          - UEMobilityLevel
+          type: string
+        contextCondition:
+          enum:
+          - Is_within_the_range
+          type: string
+        contextValueRange:
+          items:
+            $ref: '#/components/schemas/MobilityLevel'
+          type: array
+      type: object
+    ResourceSharingLevelContext:
+      description: 'This data type is the "ExpectationContext" data type with specialisations
+        for ResourceSharingLevelContext  '
+      properties:
+        contextAttribute:
+          enum:
+          - ResourceSharingLevel
+          type: string
+        contextCondition:
+          enum:
+          - Is_within_the_range
+          type: string
+        contextValueRange:
+          items:
+            $ref: '#/components/schemas/SharingLevel'
+          type: array
+      type: object
+    Intent-Multiple:
+      items:
+        $ref: '#/components/schemas/Intent-Single'
+      type: array
+    resources-intentNrm:
+      oneOf:
+      - $ref: '#/components/schemas/Intent-Single'
+    Top:
+      properties:
+        id:
+          nullable: true
+          type: string
+        objectClass:
+          type: string
+        objectInstance:
+          type: string
+        VsDataContainer:
+          items:
+            $ref: '#/components/schemas/VsDataContainer-Single'
+          type: array
+      required:
+      - id
+      type: object
+    VsDataContainer-Multiple:
+      items:
+        $ref: '#/components/schemas/VsDataContainer-Single'
+      type: array
+    VsDataContainer-Single:
+      properties:
+        id:
+          type: string
+        attributes:
+          $ref: '#/components/schemas/VsDataContainer_Single_attributes'
+        VsDataContainer:
+          items:
+            $ref: '#/components/schemas/VsDataContainer-Single'
+          type: array
+      type: object
+    Dn:
+      type: string
+    XLThpt:
+      properties:
+        servAttrCom:
+          $ref: '#/components/schemas/ServAttrCom'
+        guaThpt:
+          format: float
+          type: number
+        maxThpt:
+          format: float
+          type: number
+      type: object
+    ServAttrCom:
+      properties:
+        category:
+          $ref: '#/components/schemas/Category'
+        tagging:
+          items:
+            enum:
+            - PERFORMANCE
+            - FUNCTION
+            - OPERATION
+            type: string
+          type: array
+        exposure:
+          $ref: '#/components/schemas/Exposure'
+      type: object
+    Category:
+      enum:
+      - CHARACTER
+      - SCALABILITY
+      type: string
+    Tagging:
+      items:
+        enum:
+        - PERFORMANCE
+        - FUNCTION
+        - OPERATION
+        type: string
+      type: array
+    Exposure:
+      enum:
+      - API
+      - KPI
+      type: string
+    Float:
+      format: float
+      type: number
+    NrTac:
+      maximum: 16777215
+      type: integer
+    PlmnId:
+      properties:
+        mcc:
+          pattern: "^[0-9]{3}$"
+          type: string
+        mnc:
+          pattern: "[0-9]{3}|[0-9]{2}"
+          type: string
+      type: object
+    Mnc:
+      pattern: "[0-9]{3}|[0-9]{2}"
+      type: string
+    MobilityLevel:
+      enum:
+      - STATIONARY
+      - NOMADIC
+      - RESTRICTED MOBILITY
+      - FULLY MOBILITY
+      type: string
+    SharingLevel:
+      enum:
+      - SHARED
+      - NON-SHARED
+      type: string
+    Mcc:
+      pattern: "^[0-9]{3}$"
+      type: string
+    Intent_Single_allOf:
+      properties:
+        userLabel:
+          type: string
+        intentExpectations:
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/IntentExpectation'
+            - $ref: '#/components/schemas/RadioNetworkExpectation'
+            - $ref: '#/components/schemas/ServiceSupportExpectation'
+            type: object
+          type: array
+        intentContexts:
+          items:
+            $ref: '#/components/schemas/IntentContext'
+          type: array
+        intentFulfilmentInfo:
+          $ref: '#/components/schemas/FulfilmentInfo'
+      type: object
+      example: null
+    RadioNetworkExpectation_expectationTargets_inner:
+      oneOf:
+      - $ref: '#/components/schemas/WeakRSRPRatioTarget'
+      - $ref: '#/components/schemas/LowSINRRatioTarget'
+      - $ref: '#/components/schemas/AveULRANUEThptTarget'
+      - $ref: '#/components/schemas/AveDLRANUEThptTarget'
+      - $ref: '#/components/schemas/LowULRANUEThptRatioTarget'
+      - $ref: '#/components/schemas/LowDLRANUEThptRatioTarget'
+      - $ref: '#/components/schemas/ExpectationTarget'
+      type: object
+    ServiceSupportExpectation_expectationTargets_inner:
+      oneOf:
+      - $ref: '#/components/schemas/DLThptPerUETarget'
+      - $ref: '#/components/schemas/ULThptPerUETarget'
+      - $ref: '#/components/schemas/DLLatencyTarget'
+      - $ref: '#/components/schemas/ULLatencyTarget'
+      - $ref: '#/components/schemas/MaxNumberofUEsTarget'
+      - $ref: '#/components/schemas/ActivityFactorTarget'
+      - $ref: '#/components/schemas/UESpeedTarget'
+      - $ref: '#/components/schemas/ExpectationTarget'
+      type: object
+    ServiceSupportExpectation_expectationContexts_inner:
+      oneOf:
+      - $ref: '#/components/schemas/ServiceStartTimeContext'
+      - $ref: '#/components/schemas/ServiceEndTimeContext'
+      - $ref: '#/components/schemas/UEMobilityLevelContext'
+      - $ref: '#/components/schemas/ResourceSharingLevelContext'
+      - $ref: '#/components/schemas/ExpectationContext'
+      type: object
+    RadioNetworkExpectationObject_objectContexts_inner:
+      oneOf:
+      - $ref: '#/components/schemas/CoverageAreaPolygonContext'
+      - $ref: '#/components/schemas/CoverageTACContext'
+      - $ref: '#/components/schemas/PLMNContext'
+      - $ref: '#/components/schemas/NRFqBandContext'
+      - $ref: '#/components/schemas/RATContext'
+      - $ref: '#/components/schemas/ObjectContext'
+      type: object
+    ServiceSupportExpectationObject_objectContexts_inner:
+      oneOf:
+      - $ref: '#/components/schemas/EdgeIdenfiticationIdContext'
+      - $ref: '#/components/schemas/EdgeIdenfiticationLocContext'
+      - $ref: '#/components/schemas/CoverageAreaTAContext'
+      - $ref: '#/components/schemas/ObjectContext'
+      type: object
+    VsDataContainer_Single_attributes:
+      properties:
+        vsDataType:
+          type: string
+        vsDataFormatVersion:
+          type: string
+        vsData:
+          nullable: true
+      type: object

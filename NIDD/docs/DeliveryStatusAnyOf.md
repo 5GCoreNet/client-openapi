@@ -1,0 +1,37 @@
+# DeliveryStatusAnyOf
+
+## Enum
+
+
+* `SUCCESS` (value: `"SUCCESS"`)
+
+* `SUCCESS_NEXT_HOP_ACKNOWLEDGED` (value: `"SUCCESS_NEXT_HOP_ACKNOWLEDGED"`)
+
+* `SUCCESS_NEXT_HOP_UNACKNOWLEDGED` (value: `"SUCCESS_NEXT_HOP_UNACKNOWLEDGED"`)
+
+* `SUCCESS_ACKNOWLEDGED` (value: `"SUCCESS_ACKNOWLEDGED"`)
+
+* `SUCCESS_UNACKNOWLEDGED` (value: `"SUCCESS_UNACKNOWLEDGED"`)
+
+* `TRIGGERED` (value: `"TRIGGERED"`)
+
+* `BUFFERING` (value: `"BUFFERING"`)
+
+* `BUFFERING_TEMPORARILY_NOT_REACHABLE` (value: `"BUFFERING_TEMPORARILY_NOT_REACHABLE"`)
+
+* `SENDING` (value: `"SENDING"`)
+
+* `FAILURE` (value: `"FAILURE"`)
+
+* `FAILURE_RDS_DISABLED` (value: `"FAILURE_RDS_DISABLED"`)
+
+* `FAILURE_NEXT_HOP` (value: `"FAILURE_NEXT_HOP"`)
+
+* `FAILURE_TIMEOUT` (value: `"FAILURE_TIMEOUT"`)
+
+* `FAILURE_TEMPORARILY_NOT_REACHABLE` (value: `"FAILURE_TEMPORARILY_NOT_REACHABLE"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
