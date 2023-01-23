@@ -1,4 +1,4 @@
-# Go API client for AKMA
+# Go API client for openapi_AKMA
 
 API for AKMA.  
 © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
@@ -25,7 +25,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import AKMA "//"
+import openapi_AKMA "///openapi_AKMA"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -43,7 +43,7 @@ Default configuration comes with `Servers` field that contains server objects as
 For using other server than the one defined on index 0 set context value `sw.ContextServerIndex` of type `int`.
 
 ```golang
-ctx := context.WithValue(context.Background(), AKMA.ContextServerIndex, 1)
+ctx := context.WithValue(context.Background(), openapi_AKMA.ContextServerIndex, 1)
 ```
 
 ### Templated Server URL
@@ -51,7 +51,7 @@ ctx := context.WithValue(context.Background(), AKMA.ContextServerIndex, 1)
 Templated server URL is formatted using default variables from configuration or from context value `sw.ContextServerVariables` of type `map[string]string`.
 
 ```golang
-ctx := context.WithValue(context.Background(), AKMA.ContextServerVariables, map[string]string{
+ctx := context.WithValue(context.Background(), openapi_AKMA.ContextServerVariables, map[string]string{
 	"basePath": "v2",
 })
 ```
@@ -65,10 +65,10 @@ An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
 ```golang
-ctx := context.WithValue(context.Background(), AKMA.ContextOperationServerIndices, map[string]int{
+ctx := context.WithValue(context.Background(), openapi_AKMA.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
-ctx = context.WithValue(context.Background(), AKMA.ContextOperationServerVariables, map[string]map[string]string{
+ctx = context.WithValue(context.Background(), openapi_AKMA.ContextOperationServerVariables, map[string]map[string]string{
 	"{classname}Service.{nickname}": {
 		"port": "8443",
 	},

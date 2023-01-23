@@ -1,4 +1,4 @@
-# Go API client for Eees_AppContextRelocation
+# Go API client for openapi_Eees_AppContextRelocation
 
 Eees Application Context Relocation Service.  
 © 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
@@ -25,7 +25,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import Eees_AppContextRelocation "//"
+import openapi_Eees_AppContextRelocation "///openapi_Eees_AppContextRelocation"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -43,7 +43,7 @@ Default configuration comes with `Servers` field that contains server objects as
 For using other server than the one defined on index 0 set context value `sw.ContextServerIndex` of type `int`.
 
 ```golang
-ctx := context.WithValue(context.Background(), Eees_AppContextRelocation.ContextServerIndex, 1)
+ctx := context.WithValue(context.Background(), openapi_Eees_AppContextRelocation.ContextServerIndex, 1)
 ```
 
 ### Templated Server URL
@@ -51,7 +51,7 @@ ctx := context.WithValue(context.Background(), Eees_AppContextRelocation.Context
 Templated server URL is formatted using default variables from configuration or from context value `sw.ContextServerVariables` of type `map[string]string`.
 
 ```golang
-ctx := context.WithValue(context.Background(), Eees_AppContextRelocation.ContextServerVariables, map[string]string{
+ctx := context.WithValue(context.Background(), openapi_Eees_AppContextRelocation.ContextServerVariables, map[string]string{
 	"basePath": "v2",
 })
 ```
@@ -65,10 +65,10 @@ An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
 ```golang
-ctx := context.WithValue(context.Background(), Eees_AppContextRelocation.ContextOperationServerIndices, map[string]int{
+ctx := context.WithValue(context.Background(), openapi_Eees_AppContextRelocation.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
-ctx = context.WithValue(context.Background(), Eees_AppContextRelocation.ContextOperationServerVariables, map[string]map[string]string{
+ctx = context.WithValue(context.Background(), openapi_Eees_AppContextRelocation.ContextOperationServerVariables, map[string]map[string]string{
 	"{classname}Service.{nickname}": {
 		"port": "8443",
 	},

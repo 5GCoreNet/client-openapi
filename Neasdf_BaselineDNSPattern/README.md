@@ -1,4 +1,4 @@
-# Go API client for Neasdf_BaselineDNSPattern
+# Go API client for openapi_Neasdf_BaselineDNSPattern
 
 EASDF Baseline DNS Pattern Service.  
 © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
@@ -25,7 +25,7 @@ go get golang.org/x/net/context
 Put the package under your project folder and add the following in import:
 
 ```golang
-import Neasdf_BaselineDNSPattern "//"
+import openapi_Neasdf_BaselineDNSPattern "///openapi_Neasdf_BaselineDNSPattern"
 ```
 
 To use a proxy, set the environment variable `HTTP_PROXY`:
@@ -43,7 +43,7 @@ Default configuration comes with `Servers` field that contains server objects as
 For using other server than the one defined on index 0 set context value `sw.ContextServerIndex` of type `int`.
 
 ```golang
-ctx := context.WithValue(context.Background(), Neasdf_BaselineDNSPattern.ContextServerIndex, 1)
+ctx := context.WithValue(context.Background(), openapi_Neasdf_BaselineDNSPattern.ContextServerIndex, 1)
 ```
 
 ### Templated Server URL
@@ -51,7 +51,7 @@ ctx := context.WithValue(context.Background(), Neasdf_BaselineDNSPattern.Context
 Templated server URL is formatted using default variables from configuration or from context value `sw.ContextServerVariables` of type `map[string]string`.
 
 ```golang
-ctx := context.WithValue(context.Background(), Neasdf_BaselineDNSPattern.ContextServerVariables, map[string]string{
+ctx := context.WithValue(context.Background(), openapi_Neasdf_BaselineDNSPattern.ContextServerVariables, map[string]string{
 	"basePath": "v2",
 })
 ```
@@ -65,10 +65,10 @@ An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
 Similar rules for overriding default operation server index and variables applies by using `sw.ContextOperationServerIndices` and `sw.ContextOperationServerVariables` context maps.
 
 ```golang
-ctx := context.WithValue(context.Background(), Neasdf_BaselineDNSPattern.ContextOperationServerIndices, map[string]int{
+ctx := context.WithValue(context.Background(), openapi_Neasdf_BaselineDNSPattern.ContextOperationServerIndices, map[string]int{
 	"{classname}Service.{nickname}": 2,
 })
-ctx = context.WithValue(context.Background(), Neasdf_BaselineDNSPattern.ContextOperationServerVariables, map[string]map[string]string{
+ctx = context.WithValue(context.Background(), openapi_Neasdf_BaselineDNSPattern.ContextOperationServerVariables, map[string]map[string]string{
 	"{classname}Service.{nickname}": {
 		"port": "8443",
 	},
