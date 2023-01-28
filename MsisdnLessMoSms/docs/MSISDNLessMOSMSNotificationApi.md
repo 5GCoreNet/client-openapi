@@ -23,7 +23,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/MsisdnLessMoSms"
 )
 
 func main() {

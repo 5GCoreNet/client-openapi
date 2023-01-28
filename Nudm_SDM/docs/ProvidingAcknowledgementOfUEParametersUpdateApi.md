@@ -24,7 +24,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/Nudm_SDM"
 )
 
 func main() {

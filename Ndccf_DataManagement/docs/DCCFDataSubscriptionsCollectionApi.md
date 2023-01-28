@@ -23,7 +23,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/Ndccf_DataManagement"
 )
 
 func main() {

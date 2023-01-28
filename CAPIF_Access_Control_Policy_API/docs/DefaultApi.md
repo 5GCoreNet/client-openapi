@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/CAPIF_Access_Control_Policy_API"
 )
 
 func main() {

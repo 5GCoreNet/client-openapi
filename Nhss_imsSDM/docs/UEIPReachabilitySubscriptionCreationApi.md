@@ -24,7 +24,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/Nhss_imsSDM"
 )
 
 func main() {

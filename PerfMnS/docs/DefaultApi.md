@@ -26,7 +26,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/PerfMnS"
 )
 
 func main() {

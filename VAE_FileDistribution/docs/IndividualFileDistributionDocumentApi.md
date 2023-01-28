@@ -24,7 +24,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/VAE_FileDistribution"
 )
 
 func main() {
@@ -90,7 +90,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/VAE_FileDistribution"
 )
 
 func main() {

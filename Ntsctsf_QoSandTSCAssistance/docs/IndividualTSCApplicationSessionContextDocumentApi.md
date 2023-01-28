@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/Ntsctsf_QoSandTSCAssistance"
 )
 
 func main() {
@@ -95,7 +95,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/Ntsctsf_QoSandTSCAssistance"
 )
 
 func main() {
@@ -163,7 +163,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/Ntsctsf_QoSandTSCAssistance"
 )
 
 func main() {

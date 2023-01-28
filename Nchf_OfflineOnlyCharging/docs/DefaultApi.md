@@ -26,7 +26,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/Nchf_OfflineOnlyCharging"
 )
 
 func main() {
@@ -95,7 +95,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/Nchf_OfflineOnlyCharging"
 )
 
 func main() {
@@ -166,7 +166,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/Nchf_OfflineOnlyCharging"
 )
 
 func main() {

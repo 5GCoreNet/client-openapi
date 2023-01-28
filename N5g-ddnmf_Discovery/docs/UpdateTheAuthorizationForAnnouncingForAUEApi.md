@@ -24,7 +24,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/5GCoreNet/client-openapi/N5g-ddnmf_Discovery"
 )
 
 func main() {
